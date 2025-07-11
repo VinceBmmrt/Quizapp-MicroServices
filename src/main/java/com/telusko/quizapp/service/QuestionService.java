@@ -1,7 +1,7 @@
 package com.telusko.quizapp.service;
 
-import com.telusko.quizapp.Question;
 import com.telusko.quizapp.dao.QuestionDao;
+import com.telusko.quizapp.model.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -37,7 +37,7 @@ public class QuestionService {
     public ResponseEntity<String> addQuestion(Question question) {
         try {
             questionDao.save(question);
-            return new ResponseEntity<>("success", HttpStatus.OK);
+            return new ResponseEntity<>("success", HttpStatus.CREATED);
         } catch (Exception e) {
             e.printStackTrace();
         }
